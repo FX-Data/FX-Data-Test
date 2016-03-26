@@ -40,7 +40,8 @@ FX-BT-Scripts:
 	git clone --depth 1 https://github.com/FX31337/FX-BT-Scripts.git
 
 $(csvfile):
-	find . -name '*.csv' -print0 | sort -z | $(xargs) -r0 cat | tee $(csvfile) | pv -ps $(size) > /dev/null
+	find . -name '*.csv' -print0 | sort -z | $(xargs) -r0 cat | tee $(csvfile) > /dev/null
+# find . -name '*.csv' -print0 | sort -z | $(xargs) -r0 cat | tee $(csvfile) | pv -ps $(size) > /dev/null
 
 # Generate HST files.
 $(m1_hst).gz:
