@@ -2,6 +2,7 @@ PATH  := "$(PATH):$(PWD)/FX-BT-Scripts"
 SHELL := env PATH=$(PATH) /bin/bash -x
 xargs := $(shell which gxargs xargs | head -n1)
 pair  := $(shell find ?????? -maxdepth 0)
+year  := $(shell (cd ??????; find ???? -type d -maxdepth 0))
 size  := $(shell du -sb $(pair) | cut -f1)
 
 # HST files.
@@ -30,6 +31,7 @@ csvfile=all.csv
 spread=20
 
 all: FX-BT-Scripts $(csvfile) $(m1_hst).gz $(m1_fxt).gz
+	git tag -f "$(pair)-$(year)" && git tag
 	@echo Done.
 
 clean:
@@ -46,9 +48,9 @@ $(csvfile):
 # Generate HST files.
 $(m1_hst).gz:
 	convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t M1,M5,M15,M30,H1,H4,D1,W1,MN -f hst4
-	gzip *.hst
+	gzip -v *.hst
 
 # Generate FXT files.
 $(m1_fxt).gz:
 	convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t M1,M5,M15,M30,H1,H4,D1,W1,MN -f fxt4
-	gzip *.fxt
+	gzip -v *.fxt

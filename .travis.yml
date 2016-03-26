@@ -60,3 +60,6 @@ deploy:
   on:
     repo: FX31337/FX-BT-Data-Test
     tags: true
+
+after_deploy:
+- make clean
