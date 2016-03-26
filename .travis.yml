@@ -1,44 +1,31 @@
-# Travis CI build configuration config file.
-
 language: python
 python:
-- "3.4"
-
+- '3.4'
 addons:
   apt:
     packages:
     - realpath
     - pv
-
 notifications:
   email: false
-
 before_install:
 - env
-
-install:
-# - pip install -r requirements.txt
-
+install: 
 before_script:
 - PATH=${PATH//:\.\/node_modules\/\.bin/}
-
 script:
-- set -e # This makes build to fail on first error.
+- set -e
 - make
-
-after_success:
-
+after_success: 
 after_failure:
-- sudo apt-get -qy install tree && - tree -d -L 6 # Print directory structure in the form of a tree.
+- sudo apt-get -qy install tree && - tree -d -L 6
 - env
-
 after_script:
 - pwd
-
 deploy:
   provider: releases
   api_key:
-    secure: TLbBoardPjLQ/mkt0eFIsp/x2etw55t3cb4O2vrxH7ZG4PeeWIK+jBR/9VB/g5HIeSWSB6dwzR9xpmPQHnMy3BZzCZ7dG9cqCD7fIb7eyerhSQRS2/pAsWvlsABArSXbhQyBSDuyX9ze+XaU0XZwYv8Q3QeHwx834uD2Depz8xyunpBrY5IhZcMbtpwfkZCdUShFPSBgqwe2/U7QKzugvmTiKD+4e5RhzoBxTK4BsGeLeP4LoDLwEgELTmWD29uUhLz+DlkqkdHEMLWaarexOKqLX6naBzDEKiAt7Wq6Z7OKIPLrBbcooartZ2WLljstMrzaincyDyAgE4C2ilKgSr0tSkBUGaSvDP9i9MfktkrEZD6xky2uWK90CmBNEgjT9MHJ99wTnFe23Ay5Ci9Is8W7dBSmrtZ+PKO+6UHWa/r8xkERQ/UdgstzS5OkS1CtGwnSaL7Wwh4f49McoVYlPbfqAnhGqEcpg0ik/u3samSXzjZhcqXPqLjgBENK3rHkjzpBviTZSkyxBfZYk3xUzmBHLe+wsSwelOlGdI0AXmkBWbN2czCKnc0m3ceMm+OaRPmlv/uX7cyo97cI1zN+6WPgTZdLlixcn0UqoIuw7Tu4nStJ/Hv2faK9KDC6lY2EcFf3nkIfthh+vQyJlNPni5s6K66FOsunZCzy0b4tHaI=
+    secure: fhOYUf5AX3R9CLBwjeaFq6p2jU6ftLNrP0WZgJWeqWnGC65Db49a4BdauL3qsXJNVbbbqNO/Vf1dsUelUmLgveug/axj1E01HpXeBUZhpmxIZWHfvAQm+ZOdOVqMW4IkxZ2SM992xl+RcMrcNEqd93V4omFBG6uXTNTmgKgmwUbYtE26vjpNfID5kpNjthrv+V4jOnn97dKw9ClgLdQ0o+C0naGX9HTTWeuQBEo1fkwO9rXF4naiMvV9BAk3xvQDmWS0aDgrvppRMVXwoUyI4fB4lQuwbQVLHGHs9gRBj32jOIKhRgWGsmMQYOU5v2CzCdaAL4ordlGijMTYmw0iBYDgo+0y4VQ8TicDY2PFZRdgtc1QlaZve3XQ1uJe67MWnaku2GnQRGhsq4e+S5ZnVR0NEK0nGjsjY5zd2C/0bAQ4Yc6HDTbjNz1KTyKGqDivhDImsnzPjZXMM8Fps1hDjfQM0bTGZQ0z+0tZX3CASNfSaQktw5C9mCOyU1Pw2wkn14AKpiY9y/0JzmboXM6kA2gi3hwRVb/BwPGzE/zm0J7qVo2fxIBsyEsAAp8p4Ph9l0Id+29pgJwjOfVlj5F6XEf1Q/8Ces9DanE/vctFIVZ3SjeQ9zKWZjzYdu+EqvrATQavrAZPY2GkK2WYM2UPptF1a347EOgXA86koTmxAGY=
   file:
     - "FOOBAR1.hst.gz"
     - "FOOBAR5.hst.gz"
@@ -56,10 +43,8 @@ deploy:
     - "FOOBAR240_0.fxt.gz"
     - "FOOBAR10080_0.fxt.gz"
     - "FOOBAR43200_0.fxt.gz"
-  skip_cleanup: true
   on:
     repo: FX31337/FX-BT-Data-Test
     tags: true
-
 after_deploy:
 - make clean

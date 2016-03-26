@@ -31,7 +31,7 @@ csvfile=all.csv
 spread=20
 
 all: FX-BT-Scripts $(csvfile) $(m1_hst).gz $(m1_fxt).gz
-	git tag -f "$(pair)-$(year)" && git tag
+	git tag
 	@echo Done.
 
 clean:
