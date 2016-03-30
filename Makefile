@@ -30,8 +30,14 @@ mn_fxt=$(pair)43200_0.fxt
 csvfile=all.csv
 spread=20
 
-all: FX-BT-Scripts $(csvfile) $(m1_hst).gz $(m1_fxt).gz
+all: hst fxt
 	git tag
+	@echo Done.
+
+hst: FX-BT-Scripts $(csvfile) $(m1_hst).gz
+	@echo Done.
+
+fxt: FX-BT-Scripts $(csvfile) $(m1_fxt).gz
 	@echo Done.
 
 clean:
