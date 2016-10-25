@@ -1,6 +1,6 @@
 PATH  := "$(PATH):$(PWD)/FX-BT-Scripts"
-SHELL := env PATH=$(PATH) /bin/bash -x
-TF    := M1,M5,M15,M30,H1,H4,D1,W1,MN
+SHELL := env PATH=$(PATH) TF=$(TF) $(SHELL) -x
+TF    ?= M1,M5,M15,M30,H1,H4,D1,W1,MN
 xargs := $(shell which gxargs xargs | head -n1)
 pair  := $(shell find ?????? -maxdepth 0)
 year  := $(shell (cd ??????; find ???? -maxdepth 0 -type d))

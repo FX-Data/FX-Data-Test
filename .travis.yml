@@ -6,6 +6,10 @@ addons:
     packages:
     - realpath
     - pv
+env:
+  matrix:
+    -
+    - TF=M1
 notifications:
   email: false
 before_install:
