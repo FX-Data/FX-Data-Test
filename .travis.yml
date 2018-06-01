@@ -48,7 +48,7 @@ deploy:
     - "FOOBAR10080_0.fxt.gz"
     - "FOOBAR43200_0.fxt.gz"
   on:
-    repo: FX31337/FX-BT-Data-Test
+    repo: FX-Data/FX-Data-Test
     tags: true
 after_deploy:
 - make clean
