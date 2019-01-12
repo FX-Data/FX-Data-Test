@@ -8,8 +8,36 @@ addons:
     - pv
 env:
   matrix:
-    -
     - TF=M1
+    - TF=M2
+    - TF=M3
+    - TF=M4
+    - TF=M5
+    - TF=M6
+    - TF=M10
+    - TF=M12
+    - TF=M15
+    - TF=M20
+    - TF=M30
+    - TF=H1
+    - TF=H2
+    - TF=H3
+    - TF=H4
+    - TF=H6
+    - TF=H8
+    - TF=H12
+    - TF=D1
+    - TF=W1
+    - TF=MN1
+    - TF=M1
+    - TF=M5
+    - TF=M15
+    - TF=M30
+    - TF=H1
+    - TF=H4
+    - TF=D1
+    - TF=W1
+    - TF=MN1
 notifications:
   email: false
 before_install:
@@ -30,23 +58,10 @@ deploy:
   provider: releases
   api_key:
     secure: fhOYUf5AX3R9CLBwjeaFq6p2jU6ftLNrP0WZgJWeqWnGC65Db49a4BdauL3qsXJNVbbbqNO/Vf1dsUelUmLgveug/axj1E01HpXeBUZhpmxIZWHfvAQm+ZOdOVqMW4IkxZ2SM992xl+RcMrcNEqd93V4omFBG6uXTNTmgKgmwUbYtE26vjpNfID5kpNjthrv+V4jOnn97dKw9ClgLdQ0o+C0naGX9HTTWeuQBEo1fkwO9rXF4naiMvV9BAk3xvQDmWS0aDgrvppRMVXwoUyI4fB4lQuwbQVLHGHs9gRBj32jOIKhRgWGsmMQYOU5v2CzCdaAL4ordlGijMTYmw0iBYDgo+0y4VQ8TicDY2PFZRdgtc1QlaZve3XQ1uJe67MWnaku2GnQRGhsq4e+S5ZnVR0NEK0nGjsjY5zd2C/0bAQ4Yc6HDTbjNz1KTyKGqDivhDImsnzPjZXMM8Fps1hDjfQM0bTGZQ0z+0tZX3CASNfSaQktw5C9mCOyU1Pw2wkn14AKpiY9y/0JzmboXM6kA2gi3hwRVb/BwPGzE/zm0J7qVo2fxIBsyEsAAp8p4Ph9l0Id+29pgJwjOfVlj5F6XEf1Q/8Ces9DanE/vctFIVZ3SjeQ9zKWZjzYdu+EqvrATQavrAZPY2GkK2WYM2UPptF1a347EOgXA86koTmxAGY=
+  file_glob: true
   file:
-    - "FOOBAR1.hst.gz"
-    - "FOOBAR5.hst.gz"
-    - "FOOBAR15.hst.gz"
-    - "FOOBAR30.hst.gz"
-    - "FOOBAR60.hst.gz"
-    - "FOOBAR240.hst.gz"
-    - "FOOBAR10080.hst.gz"
-    - "FOOBAR43200.hst.gz"
-    - "FOOBAR1_0.fxt.gz"
-    - "FOOBAR5_0.fxt.gz"
-    - "FOOBAR15_0.fxt.gz"
-    - "FOOBAR30_0.fxt.gz"
-    - "FOOBAR60_0.fxt.gz"
-    - "FOOBAR240_0.fxt.gz"
-    - "FOOBAR10080_0.fxt.gz"
-    - "FOOBAR43200_0.fxt.gz"
+    - "*.hst.gz"
+    - "*.fxt.gz"
   on:
     repo: FX-Data/FX-Data-Test
     tags: true
