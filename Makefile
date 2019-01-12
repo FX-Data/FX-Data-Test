@@ -59,5 +59,5 @@ $(m1_hst).gz:
 
 # Generate FXT files.
 $(m1_fxt).gz:
-	$(SCR_D)/convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f fxt4
+	$(SCR_D)/convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f fxt4 -m 0,1,2
 	gzip -v *.fxt
