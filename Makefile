@@ -1,6 +1,6 @@
-PATH  := "$(PATH):$(PWD)/FX-BT-Scripts"
-SHELL := env PATH=$(PATH) TF=$(TF) $(SHELL) -x
 TF    ?= M1,M5,M15,M30,H1,H4,D1,W1,MN1
+SHELL := /usr/bin/env TF=$(TF) $(SHELL) -x
+SCR_D	:= $(PWD)/FX-BT-Scripts
 xargs := $(shell which gxargs xargs | head -n1)
 pair  := $(shell find ?????? -maxdepth 0)
 year  := $(shell (cd ??????; find ???? -maxdepth 0 -type d))
@@ -54,10 +54,10 @@ $(csvfile):
 
 # Generate HST files.
 $(m1_hst).gz:
-	convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f hst4
+	$(SCR_D)/convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f hst4
 	gzip -v *.hst
 
 # Generate FXT files.
 $(m1_fxt).gz:
-	convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f fxt4
+	$(SCR_D)/convert_csv_to_mt.py -v -i $(csvfile) -s $(pair) -p $(spread) -S default -t $(TF) -f fxt4
 	gzip -v *.fxt
