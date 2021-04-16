@@ -1,8 +1,8 @@
 # FX-BT-Data-Test
+
 Forex Historical Test Data
 
-CI build status
-------------
+## CI build status
 
 | Status |
 | :----- |

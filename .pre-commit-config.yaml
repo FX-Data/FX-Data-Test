@@ -1,0 +1,36 @@
+---
+repos:
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.1.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-byte-order-marker
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+        exclude: (\.csv)$
+      - id: trailing-whitespace
+        exclude: (\.csv)$
+
+  - repo: https://github.com/igorshubovych/markdownlint-cli.git
+    rev: v0.24.0
+    hooks:
+      - id: markdownlint
+
+  - repo: https://github.com/jumanjihouse/pre-commit-hooks
+    rev: master  # or specific git tag
+    hooks:
+      - id: forbid-binary
+      # - id: git-check     # Configure in .gitattributes
+      #   exclude: (\.csv)$
+      - id: markdownlint
+      - id: require-ascii
+      - id: script-must-have-extension
+
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.23.0
+    hooks:
+      - id: yamllint

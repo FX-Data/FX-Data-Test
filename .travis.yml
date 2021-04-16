@@ -1,66 +1,67 @@
+---
 language: python
 python:
-- '3.4'
+  - '3.4'
 addons:
   apt:
     packages:
-    - realpath
-    - pv
+      - realpath
+      - pv
 env:
   matrix:
-  - TF=M1
-  - TF=M2
-  - TF=M3
-  - TF=M4
-  - TF=M5
-  - TF=M6
-  - TF=M10
-  - TF=M12
-  - TF=M15
-  - TF=M20
-  - TF=M30
-  - TF=H1
-  - TF=H2
-  - TF=H3
-  - TF=H4
-  - TF=H6
-  - TF=H8
-  - TF=H12
-  - TF=D1
-  - TF=W1
-  - TF=MN1
-  - TF=M1
-  - TF=M5
-  - TF=M15
-  - TF=M30
-  - TF=H1
-  - TF=H4
-  - TF=D1
-  - TF=W1
-  - TF=MN1
+    - TF=M1
+    - TF=M2
+    - TF=M3
+    - TF=M4
+    - TF=M5
+    - TF=M6
+    - TF=M10
+    - TF=M12
+    - TF=M15
+    - TF=M20
+    - TF=M30
+    - TF=H1
+    - TF=H2
+    - TF=H3
+    - TF=H4
+    - TF=H6
+    - TF=H8
+    - TF=H12
+    - TF=D1
+    - TF=W1
+    - TF=MN1
+    - TF=M1
+    - TF=M5
+    - TF=M15
+    - TF=M30
+    - TF=H1
+    - TF=H4
+    - TF=D1
+    - TF=W1
+    - TF=MN1
 notifications:
   email: false
 before_install:
-- env
-install: 
+  - env
+install:
 before_script:
-- PATH=${PATH//:\.\/node_modules\/\.bin/}
+  - PATH=${PATH//:\.\/node_modules\/\.bin/}
 script:
-- set -e
-- make
-after_success: 
+  - set -e
+  - make
+after_success:
 after_failure:
-- sudo apt-get -qy install tree && - tree -d -L 6
-- env
+  - sudo apt-get -qy install tree && - tree -d -L 6
+  - env
 after_script:
-- pwd
+  - pwd
 deploy:
   provider: releases
   api_key:
     secure: GQwSpJNXfdq/g3HkT7OhQcaQJ+7Wt+oWAlwAORP8rdQ+0QvBYr+ezIaUtTOxYb7s3vk8YgdntaJ7Mm5xuGLhZy919sgRlbNw+nXC/P9ruNbeLdY46uIlWmQwNRjudTSGnWkus4bF6pR2BhbErjvtYt5gO4NX1Jut0K0/6ZK8RYT7DGhldF9lydHenSgjezl2B2/JwJ7AUJklOEruSBps0DlwexRSPivIeFFxlpFQWe3Pxb4ubGybpyU8ZYknAJlg5WsnzeoPsXw4mowB6ewSlQs8Kp/gmp0iCBaxn5dBULptwBq3ioQs2z/soFe3gutC8V77pAyYX1+o0aQDfBv1/rY23FFug7XJ4UO/hn80OZR2dkWtc1pGIfzYM6q5FgYq0h5f8Act2NqNorRlrtasgrJm+xygLWh48fGcha2gcCYIHGl3u17mYs4uROWqYpI61CmzwbwrPdSiNXdvpq5oND/wC1tX3kr057odOWX55BzO57bbC2O3ZbhUgmY+/JZ8FOxgw4wbx/lPBY+Nv7BRaMvF+wtKXWtjvtC3Z78MDuL4rzYMI+gv3P+XqRefCXKsrr1KPOO4+zcbZKKZtgBH93MvY++simeyCpzlFUG3ACBfPyB1goKdPqmwpv53D4qTMi7/GYJNox1bmuO/tJuxK/xYNd2wflxklQ7WiM+JqlQ=
   file:
-  - "*.hst.gz"
-  - "*.fxt.gz"
+    - "*.hst.gz"
+    - "*.fxt.gz"
   file_glob: true
   skip_cleanup: true
   overwrite: true
