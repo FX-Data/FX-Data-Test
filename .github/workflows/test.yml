@@ -1,0 +1,48 @@
+---
+name: Test
+
+# yamllint disable-line rule:truthy
+on:
+  pull_request:
+  push:
+
+jobs:
+  Test:
+    env:
+      TF: ${{ matrix.tf }}
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        tf: [M1, M2]
+          # - M3
+          # - M4
+          # - M5
+          # - M6
+          # - M10
+          # - M12
+          # - M15
+          # - M20
+          # - M30
+          # - H1
+          # - H2
+          # - H3
+          # - H4
+          # - H6
+          # - H8
+          # - H12
+          # - D1
+          # - W1
+          # - MN1
+          # - M1
+          # - M5
+          # - M15
+          # - M30
+          # - H1
+          # - H4
+          # - D1
+          # - W1
+          # - MN1
+    steps:
+      - uses: actions/checkout@v2
+      - run: make
+      - run: make clean
