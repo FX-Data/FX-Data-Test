@@ -2,7 +2,7 @@ TF    ?= M1,M5,M15,M30,H1,H4,D1,W1,MN1
 SHELL := /usr/bin/env TF=$(TF) $(SHELL) -x
 SCR_D	:= $(PWD)/FX-BT-Scripts
 xargs := $(shell which gxargs xargs | head -n1)
-pair  := $(shell find ?????? -maxdepth 0)
+pair  := $(shell find ?????? -maxdepth 0 -print -quit)
 year  := $(shell (cd ??????; find ???? -maxdepth 0 -type d))
 size  := $(shell du -sb $(pair) | cut -f1)
 
